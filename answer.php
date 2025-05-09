@@ -36,18 +36,21 @@
       <div class="center-content">
         <div class="page-content">Enter the number that you want add! </div>
         <br />
-        <form action="./answer.php" method="get">
-          <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" name="number" id="user-input"
-              required />
-            <label class="mdl-textfield__label" for="demo-input">Number....</label>
-            <span class="mdl-textfield__error">Input is not a number</span>
-          </div>
+        <form action="./">
+          <?php
+          $userNumber = $_GET['number']; // The name is "number", not "user-input"
+          $result = 0;
+          for ($i = 1; $i <= $userNumber; $i++) {
+            $result += $i;
+          }
+          // display results
+          echo "<h4>The sum from 1 to $userNumber is: $result.</h4>";
+          ?>
           </br>
-          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-            onclick="myButtonClicked()" type="submit">
-            Calculate!
-          </button>
+          <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+            href="./index.php" type="button">
+            Try again!
+          </a>
         </form>
         <br />
         <div class="page-content-answer">
